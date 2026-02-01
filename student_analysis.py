@@ -36,13 +36,11 @@ st.bar_chart(df["name"].value_counts())
 #Line Chart
 st.line_chart(df["scores"])
 
-#Histogram
+#Histogram (Matplotlib)
 import matplotlib.pyplot as plt
 
 fig, ax = plt.subplots()
-ax.hist(df["scores"], bins=10)
-ax.set_xlabel("Scores")
-ax.set_ylabel("Number of Students")
+ax.hist(df["scores"], bins=5)
 st.pyplot(fig)
 
 #Improving the App UI
@@ -60,4 +58,5 @@ elif option == "Summary":
 
 elif option == "Visualizations":
     st.bar_chart(df["department"].value_counts())
+
 
