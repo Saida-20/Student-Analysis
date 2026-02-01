@@ -42,7 +42,7 @@ import matplotlib.pyplot as plt
 
 fig, ax = plt.subplots()
 ax.hist(df["scores"])
-st.pyplot(fig)
+st.plt(fig)
 
 #Improving the App UI
 st.sidebar.title("Navigation")
@@ -59,3 +59,4 @@ elif option == "Summary":
 
 elif option == "Visualizations":
     st.bar_chart(df["department"].value_counts())
+
