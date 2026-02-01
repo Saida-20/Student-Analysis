@@ -31,4 +31,31 @@ if uploaded_file:
 #Visualization options
 
 #Barchart
+
 st.bar_chart(df["name"].value_counts())
+
+#Line Chart
+st.line_chart(df["scores"])
+
+#Histogram (Matplotlib)
+import matplotlib.pyplot as plt
+
+fig, ax = plt.subplots()
+ax.hist(df["scores"])
+st.pyplot(fig)
+
+#Improving the App UI
+st.sidebar.title("Navigation")
+option = st.sidebar.selectbox(
+    "Choose View",
+    ["Dataset", "Summary", "Visualizations"]
+)
+
+if option == "Dataset":
+    st.dataframe(df)
+
+elif option == "Summary":
+    st.write(df.describe())
+
+elif option == "Visualizations":
+    st.bar_chart(df["department"].value_counts())
