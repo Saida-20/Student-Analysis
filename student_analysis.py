@@ -36,12 +36,17 @@ st.bar_chart(df["name"].value_counts())
 #Line Chart
 st.line_chart(df["scores"])
 
-#Histogram (Matplotlib)
-import matplotlib.pyplot as plt
+#Histogram
+import altair as alt
 
-fig, ax = plt.subplots()
-ax.hist(df["scores"], bins=5)
-st.pyplot(fig)
+st.subheader("Score Distribution")
+
+hist = alt.Chart(df).mark_bar().encode(
+    alt.X("scores:Q", bin=alt.Bin(maxbins=5), title="Scores"),
+    alt.Y("count()", title="Number of Students")
+)
+
+st.altair_chart(hist, use_container_width=True)
 
 #Improving the App UI
 st.sidebar.title("Navigation")
@@ -58,5 +63,6 @@ elif option == "Summary":
 
 elif option == "Visualizations":
     st.bar_chart(df["department"].value_counts())
+
 
 
