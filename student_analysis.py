@@ -1,5 +1,6 @@
 import pandas as pd
 import streamlit as st
+import matplotlib.pyplot as plt
 
 st.title("Student Performance Analysis")
 
@@ -59,5 +60,6 @@ elif option == "Summary":
 
 elif option == "Visualizations":
     st.bar_chart(df["department"].value_counts())
+
 
 
