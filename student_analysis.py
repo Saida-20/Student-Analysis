@@ -38,11 +38,8 @@ st.bar_chart(df["name"].value_counts())
 st.line_chart(df["scores"])
 
 #Histogram (Matplotlib)
-import matplotlib.pyplot as plt
-
-fig, ax = plt.subplots()
-ax.hist(df["scores"])
-st.pyplot(fig)
+st.subheader("Score Distribution")
+st.bar_chart(df["scores"].value_counts())
 
 #Improving the App UI
 st.sidebar.title("Navigation")
@@ -59,6 +56,7 @@ elif option == "Summary":
 
 elif option == "Visualizations":
     st.bar_chart(df["department"].value_counts())
+
 
 
 
